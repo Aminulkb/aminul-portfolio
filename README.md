@@ -64,7 +64,7 @@ Without SMTP configured, the site still builds and runs — the contact form wil
   - Valid submissions attempt PDF generation + email send; without SMTP configured they correctly return a `502` with a generic, non-leaking error message (verified no stack traces/secrets are exposed).
   - The honeypot field silently returns `{"success":true}` without sending email.
   - The bot-speed guard rejects submissions completed less than 2 seconds after the form rendered.
-- **Not verified** (requires real credentials): actual end-to-end email delivery to a real inbox. Configure `.env.local` and submit the live form to confirm delivery once SMTP is set up.
+- **Verified in production:** live Gmail SMTP configured on Vercel, a real test submission through the deployed form was delivered successfully to the configured inbox with its PDF attachment intact (2026-10-16).
 
 ## Known trade-offs
 
@@ -75,9 +75,8 @@ Without SMTP configured, the site still builds and runs — the contact form wil
 
 ## Still needed from the project owner
 
-1. **SMTP credentials + inbox address** — fill in `.env.local` (see above) so the contact form can actually deliver email.
-2. **Domain name** — set `NEXT_PUBLIC_SITE_URL` once a domain is chosen; it feeds the canonical URL, sitemap, Open Graph tags, and JSON-LD.
-3. **Professional photograph (optional)** — the hero section currently shows an "AI" monogram placeholder instead of a photo, per the project's rule against implying a stock photo is the real person. Supply a photo to swap in.
+1. **Custom domain name (optional)** — currently live at `https://aminul-portfolio-omega.vercel.app`. If a custom domain is added later in Vercel, update `NEXT_PUBLIC_SITE_URL` to match.
+2. **Professional photograph (optional)** — the hero section currently shows an "AI" monogram placeholder instead of a photo, per the project's rule against implying a stock photo is the real person. Supply a photo to swap in.
 4. **Hosting/deployment target** — see below.
 
 ## Deployment
