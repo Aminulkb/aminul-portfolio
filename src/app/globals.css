@@ -8,6 +8,7 @@
   --color-text: #24212b;
   --color-text-secondary: #6b6574;
   --color-border: #e8e2ed;
+  --color-ink: #2c0e2e; /* Near-black deep purple — header/footer panels */
 }
 
 @theme inline {
@@ -18,6 +19,7 @@
   --color-text: var(--color-text);
   --color-text-secondary: var(--color-text-secondary);
   --color-border: var(--color-border);
+  --color-ink: var(--color-ink);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }

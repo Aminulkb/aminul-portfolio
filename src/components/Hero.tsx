@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Container } from "./ui/Container";
 import { siteConfig } from "@/content/site";
@@ -36,11 +37,15 @@ export function Hero() {
           </div>
         </div>
 
-        <div
-          className="relative flex h-56 w-56 shrink-0 items-center justify-center rounded-full border border-border bg-surface shadow-sm sm:h-64 sm:w-64 lg:h-72 lg:w-72"
-          aria-hidden="true"
-        >
-          <span className="font-serif text-6xl font-semibold text-primary">AI</span>
+        <div className="relative h-56 w-56 shrink-0 overflow-hidden rounded-full border-4 border-surface shadow-lg ring-1 ring-border sm:h-64 sm:w-64 lg:h-72 lg:w-72">
+          <Image
+            src="/images/aminul-islam.jpg"
+            alt={siteConfig.name}
+            fill
+            sizes="(min-width: 1024px) 18rem, (min-width: 640px) 16rem, 14rem"
+            className="object-cover"
+            priority
+          />
         </div>
       </Container>
     </section>

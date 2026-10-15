@@ -5,7 +5,8 @@ Read `README.md` first for stack/structure/env vars. This file is for rules that
 ## Hard constraints (do not change without the owner's explicit approval)
 
 - **Pricing is fixed:** $300/hour, $20,000/week, $100,000/month, project-based = custom quotation. Lives in `src/content/site.ts` (`siteConfig.pricing`) — change there only, never hardcode prices elsewhere.
-- **No fabricated content.** No testimonials, client names, credentials, stats, or a real/stock photo implied to be Aminul Islam. The hero uses an "AI" monogram placeholder until a real photo is supplied.
+- **No fabricated content.** No testimonials, client names, credentials, or stats. The hero now shows Aminul's real photo (`public/images/aminul-islam.jpg`, supplied by the owner) — don't swap in a stock photo or illustration.
+- **Header/Footer theme:** both use the dark `bg-ink` panel (near-black deep purple, `--color-ink` in `globals.css`) with white/translucent-white text, by owner request for an "elegant" look — distinct from the light `bg-surface` used elsewhere on the page. Keep text white-on-ink in these two components; don't revert them to the light surface styling used in page sections.
 - **No database.** Contact submissions are emailed, not persisted. This was a deliberate scope decision (see README "Known trade-offs"), not an oversight.
 
 ## Next.js 16 specifics that bit us once — don't reintroduce these bugs
