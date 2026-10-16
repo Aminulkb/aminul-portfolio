@@ -11,6 +11,7 @@
   --color-ink: #2c0e2e; /* Near-black deep purple — footer panel */
   --color-gold: #c9a44c; /* Muted antique gold — header/footer accent */
   --color-gold-soft: #e3cb8f; /* Lighter gold for hover highlights */
+  --color-ember: #f26d3e; /* Owner-specified hover color for header buttons */
 }
 
 @theme inline {
@@ -24,6 +25,7 @@
   --color-ink: var(--color-ink);
   --color-gold: var(--color-gold);
   --color-gold-soft: var(--color-gold-soft);
+  --color-ember: var(--color-ember);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }

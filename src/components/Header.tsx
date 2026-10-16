@@ -9,7 +9,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-gold/70 bg-gradient-to-r from-primary via-primary to-secondary/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b-4 border-gold bg-gradient-to-r from-primary via-primary to-secondary/95 backdrop-blur-sm">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
         <Link
           href="/"
@@ -19,22 +19,21 @@ export function Header() {
           Aminul Islam
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-2 md:flex" aria-label="Primary">
           {siteConfig.nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="group relative py-1 text-sm font-medium text-white/80 transition-colors hover:text-gold-soft"
+              className="rounded-full px-3.5 py-1.5 text-sm font-medium text-white/80 transition-all duration-300 hover:bg-gold/15 hover:text-gold-soft"
             >
               {item.label}
-              <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-gold transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </a>
           ))}
         </nav>
 
         <a
           href="#contact"
-          className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-gold-soft md:inline-flex"
+          className="hidden rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-ink transition-colors duration-300 hover:bg-ember hover:text-white md:inline-flex"
         >
           Book a Consultation
         </a>
@@ -51,7 +50,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-gold/30 bg-primary px-6 py-4 md:hidden" aria-label="Mobile">
+        <nav className="border-t-2 border-gold bg-primary px-6 py-4 md:hidden" aria-label="Mobile">
           <ul className="flex flex-col gap-4">
             {siteConfig.nav.map((item) => (
               <li key={item.href}>
@@ -68,7 +67,7 @@ export function Header() {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-2 block rounded-full bg-gold px-5 py-2.5 text-center text-sm font-semibold text-ink"
+                className="mt-2 block rounded-md bg-gold px-5 py-2.5 text-center text-sm font-semibold text-ink transition-colors duration-300 hover:bg-ember hover:text-white"
               >
                 Book a Consultation
               </a>
