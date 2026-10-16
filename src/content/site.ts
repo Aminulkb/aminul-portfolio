@@ -30,6 +30,7 @@ export const siteConfig = {
     { label: "Expertise", href: "#expertise" },
     { label: "Services", href: "#services" },
     { label: "Pricing", href: "#pricing" },
+    { label: "Blog", href: "/blog" },
     { label: "Contact", href: "#contact" },
   ],
   hero: {

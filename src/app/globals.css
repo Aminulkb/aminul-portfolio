@@ -8,7 +8,9 @@
   --color-text: #24212b;
   --color-text-secondary: #6b6574;
   --color-border: #e8e2ed;
-  --color-ink: #2c0e2e; /* Near-black deep purple — header/footer panels */
+  --color-ink: #2c0e2e; /* Near-black deep purple — footer panel */
+  --color-gold: #c9a44c; /* Muted antique gold — header/footer accent */
+  --color-gold-soft: #e3cb8f; /* Lighter gold for hover highlights */
 }
 
 @theme inline {
@@ -20,6 +22,8 @@
   --color-text-secondary: var(--color-text-secondary);
   --color-border: var(--color-border);
   --color-ink: var(--color-ink);
+  --color-gold: var(--color-gold);
+  --color-gold-soft: var(--color-gold-soft);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }

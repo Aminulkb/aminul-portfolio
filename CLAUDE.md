@@ -6,7 +6,7 @@ Read `README.md` first for stack/structure/env vars. This file is for rules that
 
 - **Pricing is fixed:** $300/hour, $20,000/week, $100,000/month, project-based = custom quotation. Lives in `src/content/site.ts` (`siteConfig.pricing`) — change there only, never hardcode prices elsewhere.
 - **No fabricated content.** No testimonials, client names, credentials, or stats. The hero now shows Aminul's real photo (`public/images/aminul-islam.jpg`, supplied by the owner) — don't swap in a stock photo or illustration.
-- **Header/Footer theme:** both use the dark `bg-ink` panel (near-black deep purple, `--color-ink` in `globals.css`) with white/translucent-white text, by owner request for an "elegant" look — distinct from the light `bg-surface` used elsewhere on the page. Keep text white-on-ink in these two components; don't revert them to the light surface styling used in page sections.
+- **Header/Footer theme:** Header uses a `primary → secondary` deep-purple gradient; Footer uses the darker `bg-ink` panel (`--color-ink` in `globals.css`). Both get a gold trim border and gold-accented text (`--color-gold` / `--color-gold-soft`), by owner request for an "elegant, gold-toned" look — distinct from the light `bg-surface` used elsewhere on the page. Nav links in both use an animated gold underline on hover (`group` + `group-hover:scale-x-100`) — reuse that pattern for any new nav-style link rather than inventing a new hover style.
 - **No database.** Contact submissions are emailed, not persisted. This was a deliberate scope decision (see README "Known trade-offs"), not an oversight.
 
 ## Next.js 16 specifics that bit us once — don't reintroduce these bugs
@@ -37,3 +37,10 @@ npm start              # run the production build locally, e.g. to smoke-test /a
 ## Content changes
 
 All visible copy — bio, services, pricing, expertise, approach steps, nav — lives in `src/content/site.ts`. Edit there; don't duplicate strings inside components.
+
+## Blog
+
+- File-based, no CMS or database (consistent with the project's "no database" scope decision): posts are plain objects in `src/content/blog.ts` (`blogPosts` array). Add a post by appending an object there — no new files or routes needed.
+- `src/app/blog/page.tsx` (listing) and `src/app/blog/[slug]/page.tsx` (post, with `generateStaticParams` + `generateMetadata`) read from that array. `sitemap.ts` includes `/blog` and every post automatically.
+- Keep posts as general professional/educational content — no fabricated client names, specific statistics, or claimed outcomes (same "No fabricated content" rule as the rest of the site).
+- Post dates are plain `"YYYY-MM-DD"` strings formatted with `src/lib/blog-date.ts` (`formatBlogDate`), which deliberately avoids `new Date(...)` entirely to stay unambiguously safe under Cache Components — don't swap it for a `Date`-based formatter in a Server Component.
