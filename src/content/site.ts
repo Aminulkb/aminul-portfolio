@@ -12,7 +12,7 @@ export const siteConfig = {
   location: "Bangladesh",
   availability: "Available for Global Consulting",
   bio: [
-    "A seasoned Human Resource Consultant with 15+ years of proven success in the NGO sector, specializing in identifying, training, and empowering talent that transforms organizations from the inside out.",
+    "A Strategic Human Resource Consultant with 15+ years of experience in the NGO sector, specializing in talent acquisition, people development, and organizational capacity building to drive performance, strengthen leadership, and achieve sustainable organizational growth.",
     "Expertise in recruitment strategies, skill-based workforce training, employee engagement, talent development, and purposeful team motivation.",
   ],
   keywords: [
