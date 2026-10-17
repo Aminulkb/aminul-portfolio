@@ -75,12 +75,12 @@ export const siteConfig = {
     },
   ],
   pricing: [
-    { id: "hourly", icon: "Clock", label: "Hourly Consulting", price: "$300", unit: "/ hour", service: "hourly" },
+    { id: "hourly", icon: "Clock", label: "Hourly Consulting", price: "$100", unit: "/ hour", service: "hourly" },
     {
       id: "weekly",
       icon: "CalendarDays",
       label: "Weekly Consulting",
-      price: "$20,000",
+      price: "$10,000",
       unit: "/ week",
       service: "weekly",
     },
@@ -88,7 +88,7 @@ export const siteConfig = {
       id: "monthly",
       icon: "CalendarRange",
       label: "Monthly Consulting",
-      price: "$100,000",
+      price: "$30,000",
       unit: "/ month",
       service: "monthly",
     },
@@ -133,8 +133,8 @@ export const siteConfig = {
 } as const;
 
 export const serviceTypeOptions = [
-  { value: "hourly", label: "Hourly Consulting ($300/hour)" },
-  { value: "weekly", label: "Weekly Consulting ($20,000/week)" },
-  { value: "monthly", label: "Monthly Consulting ($100,000/month)" },
+  { value: "hourly", label: "Hourly Consulting ($100/hour)" },
+  { value: "weekly", label: "Weekly Consulting ($10,000/week)" },
+  { value: "monthly", label: "Monthly Consulting ($30,000/month)" },
   { value: "project", label: "Project-Based Consulting (Custom Quotation)" },
 ] as const;

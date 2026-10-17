@@ -62,7 +62,7 @@ const jsonLd = {
       url: siteConfig.url,
       areaServed: "Worldwide",
       provider: { "@type": "Person", name: siteConfig.name },
-      priceRange: "$300 - $100,000",
+      priceRange: "$100 - $30,000",
     },
   ],
 };
