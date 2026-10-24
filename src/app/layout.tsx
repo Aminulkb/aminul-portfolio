@@ -43,6 +43,14 @@ export const metadata: Metadata = {
   },
 };
 
+// Derived from siteConfig.pricing (content/site.json) so this stays in sync
+// automatically when the owner edits prices via /admin — no second place to
+// remember to update.
+const pricedAmounts = siteConfig.pricing
+  .map((plan) => Number(plan.price.replace(/[^0-9]/g, "")))
+  .filter((n) => Number.isFinite(n) && n > 0);
+const priceRange = `$${Math.min(...pricedAmounts).toLocaleString("en-US")} - $${Math.max(...pricedAmounts).toLocaleString("en-US")}`;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -62,7 +70,7 @@ const jsonLd = {
       url: siteConfig.url,
       areaServed: "Worldwide",
       provider: { "@type": "Person", name: siteConfig.name },
-      priceRange: "$100 - $30,000",
+      priceRange,
     },
   ],
 };

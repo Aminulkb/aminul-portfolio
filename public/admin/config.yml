@@ -1,0 +1,134 @@
+# Decap CMS configuration — https://decapcms.org/docs/configuration-options/
+#
+# Backend: content is read from and written straight to the GitHub repo
+# (Aminulkb/aminul-portfolio, branch main). Every save here is a real git
+# commit, which Vercel then auto-deploys — exactly like a change pushed by
+# Claude, just made by the owner through a form instead of code.
+#
+# Login uses GitHub OAuth (see src/app/api/auth/route.ts and
+# src/app/api/auth/callback/route.ts). This requires a GitHub OAuth App and
+# two environment variables on Vercel — see README.md "Admin Panel" section.
+
+backend:
+  name: github
+  repo: Aminulkb/aminul-portfolio
+  branch: main
+  base_url: https://aminul-portfolio-omega.vercel.app
+  auth_endpoint: api/auth
+
+publish_mode: simple
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+site_url: https://aminul-portfolio-omega.vercel.app
+display_url: https://aminul-portfolio-omega.vercel.app
+logo_url: /icon.png
+
+collections:
+  - name: "site"
+    label: "Website Content"
+    files:
+      - file: "content/site.json"
+        label: "Bio, Services, Pricing & Approach"
+        name: "settings"
+        fields:
+          - label: "Bio (About section)"
+            name: "bio"
+            widget: "list"
+            field: { label: "Paragraph", name: "text", widget: "text" }
+
+          - label: "Expertise"
+            name: "expertise"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["UserSearch", "GraduationCap", "HeartHandshake", "Target", "Building2", "Code2"]
+
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID (no spaces, used internally)", name: "id", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["UserSearch", "GraduationCap", "HeartHandshake", "Briefcase"]
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Pricing"
+            name: "pricing"
+            widget: "list"
+            summary: "{{fields.label}} — {{fields.price}}"
+            fields:
+              - { label: "ID (no spaces, used internally)", name: "id", widget: "string" }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options: ["Clock", "CalendarDays", "CalendarRange", "FileText"]
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Price (e.g. $100 or Custom)", name: "price", widget: "string" }
+              - { label: "Unit (e.g. / hour or quotation)", name: "unit", widget: "string" }
+              - label: "Service Key (must stay hourly / weekly / monthly / project)"
+                name: "service"
+                widget: "select"
+                options: ["hourly", "weekly", "monthly", "project"]
+
+          - label: "Pricing Note"
+            name: "pricingNote"
+            widget: "text"
+
+          - label: "Professional Approach (4 steps)"
+            name: "approach"
+            widget: "list"
+            summary: "{{fields.step}} — {{fields.title}}"
+            fields:
+              - { label: "Step Number", name: "step", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Contact Section Notice"
+            name: "contactInboxNotice"
+            widget: "string"
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    delete: true
+    format: "frontmatter"
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt (short summary shown on the blog list)", name: "excerpt", widget: "text" }
+      - label: "Date"
+        name: "date"
+        widget: "string"
+        hint: "Format exactly as YYYY-MM-DD, e.g. 2026-10-24"
+        pattern: ['^\d{4}-\d{2}-\d{2}$', "Must be in YYYY-MM-DD format"]
+      - { label: "Read Time (e.g. 5 min read)", name: "readTime", widget: "string" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - label: "Related Service (optional — adds a matching 'Discuss This' link)"
+        name: "relatedService"
+        widget: "select"
+        required: false
+        options: ["hourly", "weekly", "monthly", "project"]
+      - label: "Content Blocks"
+        name: "content"
+        widget: "list"
+        summary: "{{fields.type}} — {{fields.text}}"
+        fields:
+          - label: "Block Type"
+            name: "type"
+            widget: "select"
+            options: ["paragraph", "heading"]
+          - { label: "Text", name: "text", widget: "text" }
