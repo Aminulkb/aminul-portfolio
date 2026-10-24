@@ -4,12 +4,30 @@
     "Expertise in recruitment strategies, skill-based workforce training, employee engagement, talent development, and purposeful team motivation."
   ],
   "expertise": [
-    { "title": "Recruitment & Talent Acquisition", "icon": "UserSearch" },
-    { "title": "Workforce Training & Development", "icon": "GraduationCap" },
-    { "title": "Employee Engagement", "icon": "HeartHandshake" },
-    { "title": "Team Motivation", "icon": "Target" },
-    { "title": "HR Consulting & Organizational Development", "icon": "Building2" },
-    { "title": "Website Development", "icon": "Code2" }
+    {
+      "title": "Recruitment & Talent Acquisition",
+      "icon": "UserSearch"
+    },
+    {
+      "title": "Workforce Training & Development",
+      "icon": "GraduationCap"
+    },
+    {
+      "title": "Employee Engagement",
+      "icon": "HeartHandshake"
+    },
+    {
+      "title": "Team Motivation",
+      "icon": "Target"
+    },
+    {
+      "title": "HR Consulting & Organizational Development",
+      "icon": "Building2"
+    },
+    {
+      "title": "Website Development with AI",
+      "icon": "Code2"
+    }
   ],
   "services": [
     {
@@ -38,10 +56,38 @@
     }
   ],
   "pricing": [
-    { "id": "hourly", "icon": "Clock", "label": "Hourly Consulting", "price": "$100", "unit": "/ hour", "service": "hourly" },
-    { "id": "weekly", "icon": "CalendarDays", "label": "Weekly Consulting", "price": "$10,000", "unit": "/ week", "service": "weekly" },
-    { "id": "monthly", "icon": "CalendarRange", "label": "Monthly Consulting", "price": "$30,000", "unit": "/ month", "service": "monthly" },
-    { "id": "project", "icon": "FileText", "label": "Project-Based Consulting", "price": "Custom", "unit": "quotation", "service": "project" }
+    {
+      "id": "hourly",
+      "icon": "Clock",
+      "label": "Hourly Consulting",
+      "price": "$100",
+      "unit": "/ hour",
+      "service": "hourly"
+    },
+    {
+      "id": "weekly",
+      "icon": "CalendarDays",
+      "label": "Weekly Consulting",
+      "price": "$10,000",
+      "unit": "/ week",
+      "service": "weekly"
+    },
+    {
+      "id": "monthly",
+      "icon": "CalendarRange",
+      "label": "Monthly Consulting",
+      "price": "$30,000",
+      "unit": "/ month",
+      "service": "monthly"
+    },
+    {
+      "id": "project",
+      "icon": "FileText",
+      "label": "Project-Based Consulting",
+      "price": "Custom",
+      "unit": "quotation",
+      "service": "project"
+    }
   ],
   "pricingNote": "Project-based consulting fees are determined by scope and deliverables, agreed in advance with each client.",
   "approach": [
