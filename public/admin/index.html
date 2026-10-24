@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Admin — Aminul Islam</title>
     <meta name="robots" content="noindex" />
+    <!-- This page is served at /admin (no trailing slash, via the next.config.ts
+         rewrite) as well as /admin/index.html directly. Without a fixed <base>,
+         Decap's relative "config.yml" fetch resolves against whatever's in the
+         browser's address bar — at "/admin" that's a sibling path, "/config.yml",
+         which 404s. Pinning the base here makes it resolve correctly either way. -->
+    <base href="/admin/" />
   </head>
   <body>
     <!-- Decap CMS (formerly Netlify CMS) loaded from CDN — see public/admin/config.yml
