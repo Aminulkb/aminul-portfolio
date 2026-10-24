@@ -11,6 +11,9 @@
          browser's address bar — at "/admin" that's a sibling path, "/config.yml",
          which 404s. Pinning the base here makes it resolve correctly either way. -->
     <base href="/admin/" />
+    <!-- Cosmetic skin for the login screen only — see admin.css for why
+         this is safe against a future Decap CMS version bump. -->
+    <link rel="stylesheet" href="admin.css" />
   </head>
   <body>
     <!-- Decap CMS (formerly Netlify CMS) loaded from CDN — see public/admin/config.yml

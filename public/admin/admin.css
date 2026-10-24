@@ -1,0 +1,77 @@
+/* Cosmetic skin for the Decap CMS login screen, so it matches the site's own
+   deep-purple brand (see --color-primary/--color-secondary in
+   src/app/globals.css) instead of Decap's plain grey default. Only the
+   logged-out "Login with GitHub" screen is touched here; the editor itself
+   (after login) is left as Decap's own UI.
+
+   Decap/Netlify CMS's components are styled with Emotion, which keeps a
+   readable label in the class name (e.g. "StyledAuthenticationPage") ahead
+   of a build-specific hash (e.g. "css-no93ty-..."). These selectors match
+   that stable label with [class*="..."] instead of the full class name, so
+   the styling survives a Decap version bump even though the hash changes.
+   Confirmed live against decap-cms@3 (unpkg) on 2026-10-24 — if a future
+   Decap update renames these labels, this file just stops matching
+   anything and the login screen quietly falls back to Decap's default
+   look, nothing breaks. */
+
+[class*="StyledAuthenticationPage"] {
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 32px 24px;
+  background: linear-gradient(135deg, #4a154b 0%, #5c2d91 100%);
+  font-family:
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+[class*="CustomIconWrapper"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  padding: 14px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+[class*="CustomIconWrapper"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+[class*="LoginButton-button"] {
+  background: #f26d3e !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 12px 28px !important;
+  font-size: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+[class*="LoginButton-button"]:hover {
+  background: #d85a2d !important;
+  transform: translateY(-1px);
+}
+
+/* Decal CMS's own "Netlify" credit icon — decorative only (not a link, no
+   attribution text), left in place but dimmed so it doesn't clash with the
+   site's own branding above it. */
+[class*="NetlifyCreditIcon"] {
+  opacity: 0.35;
+}
