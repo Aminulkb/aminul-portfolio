@@ -1,16 +1,16 @@
-import { Building2, GraduationCap, HeartHandshake, Target, UserSearch } from "lucide-react";
+import { Building2, Code2, GraduationCap, HeartHandshake, Target, UserSearch } from "lucide-react";
 import { Container } from "./ui/Container";
 import { SectionHeading } from "./ui/SectionHeading";
 import { siteConfig } from "@/content/site";
 
-const icons = { UserSearch, GraduationCap, HeartHandshake, Target, Building2 };
+const icons = { UserSearch, GraduationCap, HeartHandshake, Target, Building2, Code2 };
 
 export function Expertise() {
   return (
     <section id="expertise" className="scroll-mt-24 bg-background py-20 sm:py-28">
       <Container>
         <SectionHeading eyebrow="Expertise" title="Core Areas of Expertise" align="center" />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {siteConfig.expertise.map((item) => {
             const Icon = icons[item.icon as keyof typeof icons];
             return (

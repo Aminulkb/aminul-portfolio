@@ -43,6 +43,7 @@ export const siteConfig = {
     { title: "Employee Engagement", icon: "HeartHandshake" },
     { title: "Team Motivation", icon: "Target" },
     { title: "HR Consulting & Organizational Development", icon: "Building2" },
+    { title: "Website Development", icon: "Code2" },
   ],
   services: [
     {
